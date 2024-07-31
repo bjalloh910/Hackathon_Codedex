@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+
+*{  
+  margin: 0;
+  font-family: 'Monserrat', sans-serif;
+}
+
+body{
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* THIS IS REGULAR SIZING*/
+.label {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* Styling for Rolling Text */
+
+.text-wrapper{
+  display: flex;
+  justify-content: flex-start;
+  background:  #000000;
+  overflow: hidden;
+  padding: 20px;
+  width: 100%;
+}
+  
+.text-wrapper h2{
+  font-weight: lighter;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  animation: move-rtl 7000ms linear infinite;
+}
+  
+@keyFrames move-rtl{
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translate(-100%);
+    }
+}
+
+
+/* Styling for time */
+#countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 48px; 
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+  
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+
+/* Hero Styling */
+.hero-section{
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hero-section h2{
+  font-size: 35px;
+}
+
+.hero-section p {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.hero-text-container{
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  width: 800px;
+  height: 400px;
+}
+
+
+/****************  STYLING FOR THE GRID ****************/
+.container {
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  margin-top: 20px;
+}
+
+.product-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-auto-flow: dense; /* Add this line */
+}
+
+.card{
+  border: 3px solid black;
+}
+
+.card_img{
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.card.featured{
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+/****** THIS IS STYLING FOR THE ENVELOPE ************/
+.img-container {
+  flex: 1.5;
+  text-align: right;
+  padding: 1rem;
+  position: relative;
+ }
+ 
+ .stoop-sale-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+ }
+ 
+ .letter-image {
+  position: relative;
+  width: 350px; 
+  height: 350px; 
+  cursor: pointer;
+  margin: 0 auto;
+ }
+ 
+ .animated-mail {
+  position: absolute;
+  height: 262.5px; 
+  width: 350px; 
+  transition: .4s;
+ }
+ 
+ .animated-mail .body {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 175px 350px; 
+  border-color: transparent transparent #412a01 transparent;
+  z-index: 2;
+ }
+ 
+ .animated-mail .top-fold {
+  position: absolute;
+  top: 87.5px; /* Adjust position */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 87.5px 175px 0 175px; /* Adjust dimensions */
+  transform-origin: 50% 0%;
+  transition: transform .4s .4s, z-index .2s .4s;
+  border-color: #412a01 transparent transparent transparent;
+  z-index: 2;
+ }
+ 
+ .animated-mail .back-fold {
+  position: absolute;
+  bottom: 0;
+  width: 350px; 
+  height: 175px; 
+  background: #412a01;
+  z-index: 0;
+ }
+ 
+ .animated-mail .left-fold {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 87.5px 0 87.5px 175px; 
+  border-color: transparent transparent transparent #412a01;
+  z-index: 2;
+ }
+ 
+ .animated-mail .letter {
+  left: 35px; 
+  bottom: 0px;
+  position: absolute;
+  width: 280px;
+  height: 105px; 
+  background: #d2b48c; 
+  z-index: 1;
+  overflow: hidden;
+  transition: .4s .2s;
+ }
+ 
+ .animated-mail .letter .letter-border {
+  height: 17.5px;
+  width: 100%;
+  background: repeating-linear-gradient(
+      -45deg,
+      #d09b7a,
+      #412a01 14px, 
+      transparent 14px, 
+      transparent 31.5px
+  );
+ }
+ 
+ .animated-mail .letter .letter-title {
+  margin-top: 17.5px;
+  margin-left: 5px;
+  height: 17.5px; 
+  width: 40%;
+  background: #cb945a;
+ }
+ 
+ .animated-mail .letter .letter-context {
+  margin-top: 17.5px; 
+  margin-left: 5px;
+  height: 17.5px; 
+  width: 20%;
+  background: #cb5a5e;
+ }
+ 
+ .animated-mail .letter .letter-stamp {
+  margin-top: 52.5px; 
+  margin-left: 210px; 
+  border-radius: 100%;
+  height: 52.5px; 
+  width: 52.5px; 
+  background: #cb5a5e;
+  opacity: 0.3;
+ }
+ 
+ .shadow {
+  position: absolute;
+  top: 350px; 
+  left: 50%;
+  width: 700px; 
+  height: 52.5px; 
+  transition: .4s;
+  transform: translateX(-50%);
+  border-radius: 100%;
+  background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+ }
+ 
+ .letter-image:hover .animated-mail {
+  transform: translateY(87.5px); 
+ }
+ 
+ .letter-image:hover .animated-mail .top-fold {
+  transition: transform .4s, z-index .2s;
+  transform: rotateX(180deg);
+  z-index: 0;
+ }
+ 
+ .letter-image:hover .animated-mail .letter {
+  height: 315px;
+ }
+ 
+ .letter-image:hover .shadow {
+  width: 437.5px;
+ }
+ 
+ .arrow-image {
+  position: absolute;
+  width: 100px;
+  top: -50px;
+  right: -0px;
+  transform: rotate(130deg);
+ }
+ 
+ .hover-text {
+  position: absolute;
+  top: -98px;
+  right: 70px;
+  font-size: 16px;
+  color: #000;
+  animation: slight-move 2s infinite alternate;
+ }
+
+
+/* Styling for map  max-width: 900px;*/
+.map-location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+
+
+/* Styling for footer */
+.footer-container{
+  width: 100%;
+  background: black;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  gap: 10px;
+}
+.icon-container {
+  display: flex;
+  gap: 20px; /* Increased from 20px to 30px */
+}
+.footer-container i {
+  color: white;
+  font-size: 30px;
+  gap: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.footer-container i:hover {
+  transform: scale(1.2); 
+  opacity: 0.8; /* Slightly reduces opacity */
+  filter: brightness(1.2);
+  color: #af7373;
+}
+.footer-words{
+  color: white;
+}
+
+
+/* VIEWPORTS */
+@media (min-width: 768px) and (max-width: 1024px){
+  .hero-section h2{
+    font-size: 25px;
+  }
+  .hero-section p {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  #countdown{
+    font-size: 22px;
+    margin-top: 30px;
+  }
+  .map-location{
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 767px){
+  .hero-section{
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .hero-text-container{
+    padding: 40px 80px;
+    width: 500px;
+    height: 400px;
+  }
+  .hero-section h2{
+    font-size: 25px;
+  }
+  .hero-section p{
+    font-size: 20px;
+  }
+  #countdown{
+    margin-top: 20px;
+    font-size: 25px;
+  }
+  .product-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: dense;
+  }
+  .map-location{
+    padding: 20px;
+  }
+}
